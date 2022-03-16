@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node server/index.js",
     "live-reload": "nodemon server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "engines": {
     "node": "17"
@@ -19,5 +19,8 @@
     "nodemon": "^2.0.15",
     "pino": "^7.8.0",
     "pino-pretty": "^7.5.3"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }
