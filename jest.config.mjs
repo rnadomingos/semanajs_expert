@@ -5,10 +5,10 @@ const defaultConfig = {
     "text",
     "lcov",
   ],
-  coverageThreshosd: {
+  coverageThreshold: {
     global: {
       branch: 100,
-      funtions: 100,
+      functions: 100,
       lines: 100,
       statements: 100,
     }
@@ -36,8 +36,25 @@ export default {
       "public"
     ],
     testMatch: [
-      "**/test/**/server/**/*.test.js"
+      "**/tests/**/server/**/*.test.js"
     ]
 
-  }]
+  },
+  {
+    ...defaultConfig,
+    testEnvironment: "jsdom",
+    displayName: "frontend",
+    collectCoverageFrom: [
+      "public/",
+    ],
+    transformIgnorePatterns: [
+      ...defaultConfig.transformIgnorePatterns,
+      "server"
+    ],
+    testMatch: [
+      "**/tests/**/public/**/*.test.js"
+    ]
+
+  }
+]
 }
